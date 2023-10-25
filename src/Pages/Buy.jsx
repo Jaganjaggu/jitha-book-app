@@ -17,7 +17,7 @@ function Buy() {
         getAllUploadedBooks()
         setDeleteStatus(false)
     }, [deleteStatus])
-    const removeABike = async (id) => {
+    const removeABook = async (id) => {
         await deleteABook(id)
         setDeleteStatus(true)
     }
@@ -44,7 +44,7 @@ function Buy() {
                                                 <h5>{item.authorName}</h5>
                                             </Card.Text>
                                             <div className='button-content'>
-                                                <Button onClick={() => removeABike(item.id)} variant="primary">Delete</Button>
+                                                <Button onClick={() => removeABook(item.id)} variant="primary">Delete</Button>
                                                 <Link className='link-button' to={`/edit/${item.id}`}><Button variant="primary">Edit</Button></Link>
                                             </div>
                                         </Card.Body>

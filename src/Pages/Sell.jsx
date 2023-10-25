@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import './Sell.css'
 import { uploadAllBooks } from '../Services/allAPI'
+import { useNavigate } from 'react-router-dom';
+
 function Sell() {
+    const navigate = useNavigate();
 
     const [allBooks, setallBooks] = useState({
         bookImage: "",
@@ -17,6 +20,8 @@ function Sell() {
         const { bookImage, bookName, sellerName, authorName, year, price } = allBooks;
         if (!bookImage || !bookName || !sellerName || !authorName || !year || !price) {
             alert("Please fill all Fields")
+            navigate('/view ')
+
         } else {
             const response = await uploadAllBooks(allBooks)
         }
